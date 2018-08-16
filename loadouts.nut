@@ -76,6 +76,10 @@ _loadouts <- [
         ["weapon_knife", 0]
     ],
     [
+        ["weapon_mp5sd", 0],
+        ["weapon_knife", 0]
+    ],
+    [
         ["weapon_mp7", 0],
         ["weapon_knife", 0]
     ],
