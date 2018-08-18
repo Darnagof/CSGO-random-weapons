@@ -17,6 +17,7 @@ function GiveRandomLoadout(){
     local chosenLoadout = _loadouts[RandomInt(0, _loadouts.len()-1)];
     for(local i = 0; i < chosenLoadout.len(); i++){
         //If grenade (because can't give more than 1 of the same grenade type with game_player_equip)
+        // or hkp2000 (because will give p2000 or usp depending of player's inventory)
         if(
         chosenLoadout[i][0] == "weapon_hegrenade" ||
         chosenLoadout[i][0] == "weapon_molotov" ||
@@ -42,12 +43,12 @@ function GiveRandomLoadout(){
         SendToConsoleServer("ammo_grenade_limit_total 99");
         local players = [], player = null;
 
-        while ((player = Entities.FindByModel(player, "models/player/custom_player/legacy/ctm_st6.mdl")) != null){
+        while ((player = Entities.FindByClassname(player, "player")) != null){
             debugPrint("Found player !");
             players.push(player);
         }
-        while ((player = Entities.FindByModel(player, "models/player/custom_player/legacy/tm_phoenix.mdl")) != null){
-            debugPrint("Found player !");
+        while ((player = Entities.FindByClassname(player, "cs_bot")) != null){
+            debugPrint("Found bot player !");
             players.push(player);
         }
 
